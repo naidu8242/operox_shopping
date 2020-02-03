@@ -1,0 +1,107 @@
+
+DROP TABLE IF EXISTS operox.EMAIL_NOTIFICATION;
+CREATE TABLE `operox`.EMAIL_NOTIFICATION(
+  `ID` BIGINT NOT NULL AUTO_INCREMENT,
+  `EMAIL_TO` VARCHAR(150) DEFAULT NULL,
+  `EMAIL_FORM` VARCHAR(150) DEFAULT NULL,
+  `SUBJECT` text,
+  `BODY` text,
+  `DELIVERY_STATUS` VARCHAR(3) DEFAULT NULL,
+  `CREATED_DATE` DATE DEFAULT NULL,
+  `CREATED_BY` VARCHAR(8) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ID` (`ID`)
+);
+
+DROP TABLE IF EXISTS operox.EMAIL_SCENARIO;
+CREATE TABLE `operox`.EMAIL_SCENARIO (
+  `ID` BIGINT NOT NULL AUTO_INCREMENT,
+  `SCENARIO_NAME` varchar(150) DEFAULT NULL,
+  `ENTITY_TYPE` varchar(50) NULL,
+  `UNIQUE_SCENARIO_NAME` varchar(150) DEFAULT NULL,
+  `DESCRIPTION` text,
+  `SUBJECT` text,
+  `TEMPLATE_TYPE` varchar(10) DEFAULT NULL,
+  `SIGNATURE` text,
+  `BODY` text,
+  `CALL_TO_ACTION_TEXT` text,
+  `BUTTON_TEXT` text,
+  `IS_TEMPLATE_MODIFIED` varchar(3) DEFAULT NULL,
+  `CREATED_DATE` date DEFAULT NULL,
+  `CREATED_BY` varchar(8) DEFAULT NULL,
+  `ORG_CODE` varchar(100) DEFAULT NULL,
+  `LOCATION_CODE` varchar(100) DEFAULT NULL,
+  `USE_LOGO` varchar(3) DEFAULT NULL,
+  `DISCLAIMER_TEXT` text,
+  PRIMARY KEY (`ID`),
+  KEY `ORG_CODE` (`ORG_CODE`,`ID`)
+) ;
+
+
+DROP TABLE IF EXISTS operox.NOTIFICATIONS;
+CREATE TABLE `operox`.NOTIFICATIONS(
+  `ID` BIGINT NOT NULL AUTO_INCREMENT,
+  `NOTIFICATION_SCENARIO_ID` BIGINT ,
+  `NOTIFICATION_TO` BIGINT ,
+  `NOTIFICATION_FORM` BIGINT ,
+  `BODY` text,
+  `MODE` VARCHAR(10) DEFAULT NULL,
+  `ACTION_LINK` VARCHAR(500) DEFAULT NULL,
+  `ORG_CODE` VARCHAR(15) DEFAULT NULL,
+  `LOCATION_CODE` VARCHAR(110) DEFAULT NULL,
+  `NOTIFICATION_STATUS` VARCHAR(5) NULL,
+  `USER_NOTIFICATION_STATUS` VARCHAR(25) NULL,
+  `UUID` VARCHAR(50) NULL,
+  `CREATED_DATE` DATE DEFAULT NULL,
+  `CREATED_BY` VARCHAR(8) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY(NOTIFICATION_SCENARIO_ID) REFERENCES `operox`.`EMAIL_SCENARIO`(ID),
+  FOREIGN KEY(NOTIFICATION_TO) REFERENCES `operox`.`USER`(ID),
+  FOREIGN KEY(NOTIFICATION_FORM) REFERENCES `operox`.`USER`(ID)
+);
+
+
+DROP TABLE IF EXISTS operox.ENTITY_TYPE;
+CREATE TABLE `operox`.ENTITY_TYPE (
+  `ID` BIGINT NOT NULL AUTO_INCREMENT,
+  `ENTITY_NAME` varchar(255) DEFAULT NULL,
+  `ENTITY_TYPE` varchar(50) NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ID` (`ID`)
+) ;
+
+
+DROP TABLE IF EXISTS operox.CLASS_FIELD;
+CREATE TABLE `operox`.CLASS_FIELD (
+  `ID` BIGINT NOT NULL AUTO_INCREMENT ,
+  `ENTITY_TYPE_ID` BIGINT ,
+  `FIELD_NAME` varchar(100) DEFAULT NULL,
+  `DELIM_STR` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY(ENTITY_TYPE_ID) REFERENCES `operox`.`ENTITY_TYPE`(ID)
+) ;
+
+
+
+
+
+INSERT INTO `operox`.`ENTITY_TYPE` (`ENTITY_NAME`,`ENTITY_TYPE`) VALUES ('InviteUser','Email');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'firstName', '{{InviteUser.FirstName}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'lastName', '{{InviteUser.LastName}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'administratorFirstName', '{{InviteUser.AdministratorFirstName}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'administratorLastName', '{{InviteUser.AdministratorLastName}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'role', '{{InviteUser.Role}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'userEmailId', '{{InviteUser.UserEmailId}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'password', '{{InviteUser.Password}}');
+INSERT INTO `operox`.`CLASS_FIELD` (`ENTITY_TYPE_ID`, `FIELD_NAME`, `DELIM_STR`) VALUES ((SELECT MAX( ID ) FROM `operox`.`ENTITY_TYPE`), 'loginURL', '{{InviteUser.LoginURL}}');
+
+INSERT INTO `operox`.`EMAIL_SCENARIO` (`SCENARIO_NAME`, `ENTITY_TYPE`, `UNIQUE_SCENARIO_NAME`, `DESCRIPTION`, `SUBJECT`, `TEMPLATE_TYPE`, `SIGNATURE`, `BODY`,`IS_TEMPLATE_MODIFIED`, `CREATED_BY`, `ORG_CODE`,`LOCATION_CODE`) VALUES ('Invite User','Email', 'Invite User', 'Used for Invite User', '{{InviteUser.UserEmailId}} invited to Operox','org', 'Best Regards,\n{{InviteUser.AdministratorFirstName}} {{InviteUser.AdministratorLastName}}', 'Hi {{InviteUser.FirstName}} {{InviteUser.LastName}},\n\n {{InviteUser.AdministratorFirstName}} {{InviteUser.AdministratorLastName}} invited you to Operox as a {{InviteUser.Role}}.\n You can simply login into Operox by clicking below link with follow credentials\n\n Username : {{InviteUser.UserEmailId}} \n Password : {{InviteUser.Password}} \n{{InviteUser.LoginURL}}\n','N', 'OPADMIN', 'operox', 'operoxIN');
+
+
+
+CALL operox.AlterTableAddColumn ('operox','USER','MAIL_SENT','VARCHAR(2) NULL AFTER `STATUS`');
+
+CALL operox.AlterTableAddColumn ('operox','USER','USER_STATE','VARCHAR(30) NULL AFTER `PHONE`');
+
+
+

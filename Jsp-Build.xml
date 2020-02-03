@@ -1,0 +1,67 @@
+<project name="operox-jsp" basedir="../" default="copy-jsp">
+   <condition property="unix">
+		<os family="unix" />
+	</condition>
+
+	<condition property="windows">
+		<os family="windows" />
+	</condition>
+
+	<condition property="root.dir" value="c:">
+		<isset property="windows" />
+	</condition>
+	<condition property="root.dir" value="/home">
+		<isset property="unix" />
+	</condition>
+	
+    <!--Location Of Tomcat-Server -->
+	<property name="tomcat.dir" value="tomcat" />
+
+	<target name="copy-jsp">
+		<copy todir="${root.dir}/${tomcat.dir}/webapps/operox/WEB-INF/views" includeEmptyDirs="no">
+			<fileset dir="operox/src/main/webapp/WEB-INF/views">
+				<patternset>
+					<include name="**/*.jsp"/>
+				</patternset>
+			</fileset>
+		</copy>
+		<copy todir="${root.dir}/${tomcat.dir}/webapps/operox/resources/css" includeEmptyDirs="no">
+			<fileset dir="operox/src/main/webapp/resources/css">
+				<patternset>
+					<include name="**/*.css"/>
+				</patternset>
+			</fileset>
+		</copy>
+		<copy todir="${root.dir}/${tomcat.dir}/webapps/operox/resources/js" includeEmptyDirs="no">
+			<fileset dir="operox/src/main/webapp/resources/js">
+				<patternset>
+					<include name="**/*.js"/>
+				</patternset>
+			</fileset>
+		</copy>
+		
+		<copy todir="${root.dir}/${tomcat.dir}/webapps/operox/resources/images" includeEmptyDirs="no">
+			      <fileset dir="operox/src/main/webapp/resources/images">
+						<patternset>
+							<include name="**/*.jpg"/>
+							<include name="**/*.png"/>
+							<include name="**/*.jpeg"/>
+							<include name="**/*.gif"/>
+						</patternset>
+					</fileset>
+	    </copy>
+        <copy todir="${root.dir}/${tomcat.dir}/webapps/operox/resources/fonts" includeEmptyDirs="no">
+			      <fileset dir="operox/src/main/webapp/resources/fonts">
+						<patternset>
+							<include name="**/*.otf"/>
+							<include name="**/*.eot"/>
+							<include name="**/*.svg"/>
+							<include name="**/*.ttf"/>
+							<include name="**/*.woff"/>
+							<include name="**/*.woff2"/>
+						</patternset>
+					</fileset>
+	    </copy>
+	</target>
+
+</project>

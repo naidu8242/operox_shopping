@@ -1,0 +1,1 @@
+CALL operox.AlterTableAddColumn ('operox','WORK_ORDER_RAW_MATERIAL','TOTAL_AMOUNT','FLOAT NULL AFTER `PRICE`'); 

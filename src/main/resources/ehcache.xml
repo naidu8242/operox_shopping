@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../main/config/ehcache.xsd" updateCheck="true"   monitoring="autodetect" dynamicConfig="true">
+    <diskStore path="java.io.tmpdir/OperoxEhCache" />
+ 
+
+ <!--            timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+ -->	
+	<!-- Page and Page Fragment Caches -->
+	<cache name="simplePageCache"
+	  maxEntriesLocalHeap="10"
+	  eternal="false"
+	  timeToIdleSeconds="10000"
+	  timeToLiveSeconds="10000"
+	  overflowToDisk="true">
+	</cache>
+	
+<!--  <transactionManagerLookup class= "com.mycompany.transaction.manager.MyTransactionManagerLookupClass" properties="" propertySeparator=":"/> -->
+  
+  <!--in default cache attributes timeToIdleSeconds="120" timeToLiveSeconds="120" to set time to attibutes  diskExpiryThreadIntervalSeconds="120" The interval in seconds between runs of the disk expiry thread. default is 2 min -->
+    <defaultCache maxEntriesLocalHeap="10000" eternal="false"
+        diskSpoolBufferSizeMB="30"
+        maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU" statistics="true">
+        <persistence strategy="localTempSwap" />
+    </defaultCache>
+    
+    
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+        maxEntriesLocalHeap="5000" eternal="true">
+        <persistence strategy="localTempSwap" />
+    </cache> 
+    
+<!--     <cache name="student" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache> -->
+    
+    
+    
+     <cache name="org.hibernate.cache.internal.StandardQueryCache"
+        maxEntriesLocalHeap="5" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="address" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="company" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="store" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="counter" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="role" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="department" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="user" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="brand" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="category" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="tax" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="discount" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="product" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="customer" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="bill" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offer" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    
+    <cache name="productStock" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="productStockOffer" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="billItems" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="customerOffer" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="supplier" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="stockReturns" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="supplierInvoice" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="price" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="purchaseOrder" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="purchaseOrderItems" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="countries" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="states" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="webgeocities" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="shift" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerBuyxGetY" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerCoupons" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerDiscountOnInvoice" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerDiscountOnItem" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerFreeItemOnInvoice" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="offerLoyaltyPoints" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+     <cache name="offerStroes" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="offerCustomerLevel" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="leaves" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="holiday" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="payroll" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="workorder" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="workorderItems" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="workOrderRawMaterial" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="workOrderResourceManagement" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="workOrderMachineryManagement" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <cache name="passwordResets" 
+    	maxEntriesLocalHeap="5000" eternal="false" timeToLiveSeconds="3600" timeToIdleSeconds="3600" memoryStoreEvictionPolicy="LRU" >
+   		 <persistence strategy="localTempSwap" />
+    </cache>
+    
+    <!-- 21600 seconds is 6 hours (6 * 60 * 60) -->
+    <cache name="AuthenticateUserCache"
+           eternal="false"
+           timeToIdleSeconds="21600"
+           timeToLiveSeconds="21600"
+           maxEntriesLocalHeap="30000"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU"
+           copyOnRead="true"
+           copyOnWrite="true"
+           />
+</ehcache>

@@ -1,0 +1,25 @@
+CALL operox.AlterTableAddColumn ('operox','BILL','COUNTER_ID','BIGINT NULL AFTER `STORE_ID`');
+ALTER TABLE `operox`.`BILL`  ADD FOREIGN KEY(COUNTER_ID) REFERENCES COUNTER(ID);
+
+CALL operox.AlterTableAddColumn ('operox','BILL','CASHIER_USER_ID','BIGINT NULL AFTER `COUNTER_ID`');
+ALTER TABLE `operox`.`BILL`  ADD FOREIGN KEY(CASHIER_USER_ID) REFERENCES USER(ID);
+
+CALL operox.AlterTableAddColumn ('operox','BILL','BILL_NUMBER','VARCHAR(50) NULL AFTER `CASHIER_USER_ID`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','NUMBER_OF_PRODUCTS','INT NULL AFTER `BILL_NUMBER`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','TOTAL_AMOUNT','FLOAT NULL AFTER `NUMBER_OF_PRODUCTS`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','TAX','FLOAT NULL AFTER `TOTAL_AMOUNT`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','GROSS_AMOUNT','FLOAT NULL AFTER `TAX`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','DISCOUNT','FLOAT NULL AFTER `GROSS_AMOUNT`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','BILL_AMOUNT','FLOAT NULL AFTER `DISCOUNT`');
+
+CALL operox.AlterTableAddColumn ('operox','BILL','BILL_STATUS','VARCHAR(25) NULL AFTER `BILL_AMOUNT`');
+
+
+CALL operox.AlterTableAddColumn ('operox','BILL_ITEMS','PRODUCT_STOCK_ID','BIGINT NULL AFTER `PRODUCT_ID`');
+ALTER TABLE `operox`.`BILL_ITEMS`  ADD FOREIGN KEY(PRODUCT_STOCK_ID) REFERENCES PRODUCT_STOCK(ID);

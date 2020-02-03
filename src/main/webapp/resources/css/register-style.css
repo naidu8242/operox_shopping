@@ -1,0 +1,242 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif; font-weight:400; font-size:14px; margin:0px 0px; padding:0px 0px;
+     overflow-x:hidden; background-color:#f0f1f0;
+	}
+:focus, a:focus {
+	outline:none;
+	}		
+.regis_bg {
+	width:100%; min-height:auto; top:0px; right:0px; position:absolute; background:#fff url(../images/operexSignin-bg.jpg) no-repeat center; background-size:cover;
+    background-size: 100% 100%;
+	}
+.sign_head {
+	background-color:#fff; min-width:1170px; box-shadow:0px 1px 4px rgba(0,0,0,0.4);
+	}	
+.regis_logo {
+	width:210px; float:left; padding:0px 0px 0px 20px;
+	}
+.regis_logo img {
+	width:100%;
+	}
+.sign_head ul {
+	padding:22px 40px 0px 0px; margin:0px 0px; float:right;
+	}
+.sign_head ul li {
+	list-style-type:none; float:left;
+	}
+.sign_head ul li a {
+	text-decoration:none; font-size:16px; font-weight:400; color:#666; padding:5px 15px 6px; box-shadow:0px 0px 1px rgba(0,0,0,0.2);
+	display:block; margin:0px 2px;
+	}
+.sign_head ul li a:hover {
+	background-color:#f1f1f1;
+	}
+	
+.sign_inn {
+	width:1170px; margin:0px auto;
+	}
+/*.sign_inn_text {
+	float:left; width:600px; margin:60px 0px 0px 0px; font-size:14px; font-weight:400; color:#fff; text-shadow:0px 1px 2px rgba(0,0,0,0.5);
+	}						
+*/
+.regis_wrap {
+	width:420px; display:block;  z-index:100; position:relative; border-radius:10px; margin:80px 50px 0px 0px;
+	background-color:rgba(255,255,255,0.7); box-shadow:0px 0px 10px rgba(0,0,0,0.5); float:right;
+	}
+.regis_wrap.regis_wrap_a {
+	width:750px;
+	}	
+.signin_wrap {
+	width:auto; padding:30px 40px 40px;
+	}
+.signin_wrap h1 {
+	margin:0px 0px; padding:0px 0px 25px 0px; font-weight:400; color:#424242; font-size:28px; text-align:center;
+	}
+.regis_wrap.regis_wrap_a h1 {
+	padding:0px 0px 12px 0px;
+	}	
+.signin_wrap span {
+	display:block; position:relative; padding:0px 0px 11px 0px;
+	}
+.regis_wrap.regis_wrap_a span {
+	width:48.5%; display:block; box-sizing: content-box; margin:0px 5px; float:left;
+	}	
+.signin_wrap b {
+	width:1px; height:2px; background-color:#0aa4f0; position:absolute; top:42px; left:0px; right:0px; display:block; z-index:1000;
+	margin:0px auto; opacity:0; transition:0.3s all ease-in-out; -webkit-transition:0.3s all ease-in-out; -moz-transition:0.3s all ease-in-out;
+	}
+.signin_wrap i {
+	position:absolute; font-size:20px; padding:12px 0px 0px 15px; color:#74767c; z-index:1000;
+	}	
+.signin_wrap i.si-pass { font-size:18px;}	
+.signin_wrap label {
+	font-size:11px; font-weight:400; color:#f60; display:inline-block; position:absolute; left:42px; top:-8px; pointer-events: none;
+	background-color:#fff; box-shadow:0px 0px 3px rgba(0,0,0,0.2); padding:2px 8px;
+	}
+.regis_wrap.regis_wrap_a label {
+	left:12px;
+	}	
+				
+.signin_fild {
+	width:100%; appearance:none; background-color:#FFF; border:none; box-shadow:0px 0px 1px rgba(0,0,0,0.3);
+	box-sizing:border-box; height:43px; border-radius:4px; font-size:14px; font-weight:400; color:#333;
+	padding:5px 5px 0px 45px; margin-bottom:4px;
+	}
+.signin_fild.signin_fild_arrow {
+	background-image:url(../images/arrow-d-g.png); background-repeat:no-repeat; background-position: 95% center; background-size:13px;
+	}	
+.regis_wrap.regis_wrap_a .signin_fild {
+	padding:5px 5px 0px 15px;
+	}		
+.signin_fild:focus + b {
+	width:100%; opacity:1;
+	}							
+.sign_btn {
+	margin:0px 0px 2px 0px; background-color:#eb9532; font-size:16px; font-weight:500; color:#FFF; text-shadow:0px 1px 1px rgba(0,0,0,0.5);
+	text-transform:uppercase; cursor:pointer; box-shadow:0px 2px 0px #bf7118; padding:0px; height:40px; width:100%; border:none;
+	transition:0.1s all ease-in-out; -webkit-transition:0.1s all ease-in-out; -moz-transition:0.1s all ease-in-out;
+	border-radius:3px;
+	}
+.sign_btn.sign_btn_for {
+	width:50%;
+	}
+.regis_wrap.regis_wrap_a .sign_btn {
+	margin:0px 5px 2px 5px; width:48.5%;
+	}		
+.sign_btn:active {
+	box-shadow:0px 0px 0px #146193; margin:2px 0px 0px 0px;
+	}
+ .regis_wrap.regis_wrap_a .sign_btn:active {
+	box-shadow:0px 0px 0px #146193; margin:2px 5px 0px 5px;
+	}	
+.signin_wrap p {
+	padding:0px 0px 15px 0px; margin:0px; font-size:12px; color:#f12929; font-weight:500; display:none;
+	}
+.regis_wrap_a p {
+	padding:0px;
+	}
+.for-pas-text {
+	text-align:right; color:#333;
+	}
+.regis_wrap.regis_wrap_a .for-pas-text {
+	width:45%; display:inline-block; text-align:left; padding:0px 0px 0px 15px;
+	}	
+.for-pas-text i {
+	position:absolute; font-size:18px; padding:0px; color:#74767c; margin:1px 0px 0px -18px;
+	}	
+.for-pas-text strong {
+	display:inline-block; cursor:pointer; color:#333; font-weight:500; font-size:13px; margin-bottom:12px; padding:0px 0px 0px 25px;
+	}
+.for-pas-text a {
+	display:inline-block; margin:12px 0px 0px 0px; font-weight:500; color:#824500; padding:0px 0px 0px 2px;
+	}
+.cancel_for {
+	display:inline-block; cursor:pointer; font-size:15px; font-weight:500; color:#333; padding:5px 5px;
+	}
+.cancel_for:hover { color:#e42e2e;}	
+.regis_tabs {
+	border-bottom:1px solid #2980b9; margin:0px 0px 20px 0px;
+	}
+.regis_tabs a {
+	display:inline-block; width:50%; float:left; font-size:15px; font-weight:500; color:#4a4a4a; box-sizing:border-box; padding:10px 15px;
+	}
+.regis_tabs a:first-child {
+	text-align:right;
+	}
+.regis_tabs a:hover, .regis_tabs a:focus {
+	text-decoration:none; color:#2980b9; outline:none;
+	}
+.regis_tabs a.activetab {
+	color:#2980b9; background:url(../images/arrow-up.png) no-repeat 12% bottom; background-size:15px;
+	}
+.regis_tabs a:first-child.activetab {
+	color:#2980b9; background:url(../images/arrow-up.png) no-repeat 84% bottom; background-size:15px;
+	}			
+.terms_text {
+	font-size:13px; font-weight:500; color:#666; padding:2px 0px 12px 5px;
+	}
+.ui-autocomplete {
+    border: 1px solid #999; background: #fff; width:325px !important; box-sizing:border-box; cursor: default; overflow: auto;
+	}	
+.ui-menu .ui-menu-item {
+    padding: 3px 12px; font-size:13px;  white-space: nowrap;  overflow: hidden;
+	}					
+.reset_wrap_a label{
+	left:12px
+	}	 
+.reset_wrap_a p{
+    display: block;
+	}
+ .reset_wrap_a .signin_fild{
+    padding: 5px 5px 0 10px;
+ 	} 
+ .terms_text a {
+	text-decoration:none; color:#094fa5;
+	}	
+.clear { clear:both;}		
+
+	/*  Main stylesheet  */
+			
+
+/* srinivas lankalapalli signin styels */
+.sign_inn_text {
+	float:left;margin:70px 0px 0px 0px; font-size:14px; font-weight:400; color:#333;
+	line-height:22px;
+	overflow-y: auto; text-align:center; margin-left:5%;
+	margin-right:25px;
+	padding:10px 20px;
+	/*background-color: rgba(255, 255, 255, 0.6);
+	 width:550px; height: 326px;
+	*/
+	}
+	.sign_inn_text img{
+		border:10px solid rgba(255, 255, 255, 0.6); border-radius:10px; 
+	}
+.regis_wrap.regisWrap {
+	float:right !important;
+	border-radius:10px;
+/*	background-color: rgba(255, 255, 255, 0.6);*/
+	background-color:#f5f5f5;
+	margin-right:5%;
+}
+
+ul.features {
+	clear: both;
+    display: flex;
+    height: auto;
+    margin: 60px auto 0;
+    padding: 0;
+    width: 1170px;
+	background:#fff;
+}
+ul.features li{
+	list-style-type:none;
+	float:left;
+	text-align:center;
+	padding:10px 15px;
+	font-size:15px;
+	font-weight:600;
+	color:#fff;
+	width:100%;
+}
+ul.features li:first-child{
+		background-color:#4B77BE;
+}
+ul.features li:first-child + li{
+			background-color:#56cc72;
+}
+ul.features li:first-child + li + li{
+			background-color:#22A7F0;
+}
+ul.features li:first-child + li + li + li{
+			background-color:#03C9A9;
+}
+
+ul.features li:first-child + li + li + li + li{
+			background-color:#F9690E;
+}
+
+ /* srinivas lankalapalli signin styels ends */
+
+
+
